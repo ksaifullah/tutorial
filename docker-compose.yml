@@ -11,7 +11,13 @@ services:
     <<: *base
     ports:
       - '3000:3000'
-    command: npm run compile && node dist/server.js
+    command: sh -c "npm run compile && node dist/server.js"
+
+  watch:
+    <<: *base
+    ports:
+      - '3000:3000'
+    command: sh -c "npm run compile && npm run watch"
 
   install:
     <<: *base

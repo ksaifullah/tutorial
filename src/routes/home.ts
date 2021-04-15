@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
 
 export const home: RequestHandler = (_, res) => {
-  res.send( 'Hello world!' );
+  res.send('Hello World!');
 };
