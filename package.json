@@ -2,12 +2,12 @@
   "name": "tutorial",
   "version": "1.0.0",
   "description": "typescript tutorial",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
   "scripts": {
     "compile": "rm -rf dist && tsc -p tsconfig.app.json",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet",
     "test": "jest --forceExit --detectOpenHandles",
-    "watch": "concurrently -s last -k -p \"[{name}]\" -n \"TypeScript,Express\" -c \"yellow.bold,green.bold\" \"tsc -w -p tsconfig.app.json\" \"nodemon dist/server.js\""
+    "watch": "concurrently -s last -k -p \"[{name}]\" -n \"TypeScript,Express\" -c \"yellow.bold,green.bold\" \"tsc -w -p tsconfig.app.json\" \"nodemon .\""
   },
   "repository": {
     "type": "git",
