@@ -7,6 +7,12 @@ services:
     working_dir: /opt/code
     command: sh
 
+  server:
+    <<: *base
+    ports:
+      - '3000:3000'
+    command: npm run compile && node dist/server.js
+
   install:
     <<: *base
     command: npm install
