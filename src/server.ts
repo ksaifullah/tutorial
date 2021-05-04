@@ -3,7 +3,7 @@ import { home } from './routes/home';
 import { notFound } from './routes/not-found';
 
 const app = express();
-const port = 8080;
+const port = +(process.env['PORT'] || 3000);
 
 app.get('/', home);
 app.get('/home', home);
