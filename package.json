@@ -6,6 +6,7 @@
   "scripts": {
     "compile": "rm -rf dist && tsc -p tsconfig.app.json",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet",
+    "generate-migration": "typeorm migration:generate -n db-update",
     "start": "node .",
     "test": "jest --forceExit --detectOpenHandles",
     "watch": "concurrently -s last -k -p \"[{name}]\" -n \"TypeScript,Express\" -c \"yellow.bold,green.bold\" \"tsc -w -p tsconfig.app.json\" \"nodemon .\""
