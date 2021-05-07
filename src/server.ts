@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+
 import express from 'express';
 import { home } from './routes/home';
 import { notFound } from './routes/not-found';
