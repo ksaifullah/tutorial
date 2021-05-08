@@ -2,7 +2,7 @@
   "name": "tutorial",
   "version": "1.0.0",
   "description": "typescript tutorial",
-  "main": "dist/server.js",
+  "main": "dist/index.js",
   "scripts": {
     "compile": "rm -rf dist && tsc -p tsconfig.app.json",
     "fake": "node dist/fake.js",
