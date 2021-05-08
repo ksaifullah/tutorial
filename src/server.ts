@@ -1,8 +1,8 @@
-import 'reflect-metadata';
-
 import express from 'express';
+import 'reflect-metadata';
 import { home } from './routes/home';
 import { notFound } from './routes/not-found';
+import { userRoutes } from './routes/userRoutes';
 
 export const initServer = (): void => {
   const app = express();
@@ -10,6 +10,7 @@ export const initServer = (): void => {
 
   app.get('/', home);
   app.get('/home', home);
+  userRoutes(app);
 
   app.use('*', notFound);
 
