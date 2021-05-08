@@ -13,6 +13,16 @@ export const userRoutes = (app: Express): void => {
     res.json(u);
   });
 
+  app.post('/user/:uid', async (req, res) => {
+    const u = await getRepository(User).update(req.params.uid, req.body);
+    res.json(u.affected === 1);
+  });
+
+  app.put('/user', async (req, res) => {
+    const u = await getRepository(User).save(req.body);
+    res.send(u);
+  });
+
   app.delete('/user/:uid', async (req, res) => {
     const u = await getRepository(User).delete(req.params.uid);
     res.send(u.affected === 1);
