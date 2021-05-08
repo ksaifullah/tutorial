@@ -6,6 +6,11 @@ import { userRoutes } from './routes/userRoutes';
 
 export const initServer = (): void => {
   const app = express();
+  app.use(express.json());
+  app.use(express.urlencoded({
+    extended: true
+  }));
+
   const port = +(process.env['PORT'] || 3000);
 
   app.get('/', home);
