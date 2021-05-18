@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner} from 'typeorm';
+import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class dbUpdate1620428801733 implements MigrationInterface {
     name = 'dbUpdate1620428801733'

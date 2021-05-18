@@ -10,7 +10,7 @@ export class User {
   firstName!: string;
 
   @Column({ length: 64, nullable: true })
-  lastName?: string;
+  lastName!: string;
 
   @Column({ length: 64 })
   email!: string;
@@ -18,9 +18,9 @@ export class User {
   @Column({ default: true })
   isActive!: boolean;
 
-  @CreateDateColumn({ type: 'timestamp', select: false })
+  @CreateDateColumn({ type: 'timestamp' })
   createdAt!: Date;
 
-  @UpdateDateColumn({ type: 'timestamp', select: false })
+  @UpdateDateColumn({ type: 'timestamp' })
   updatedAt!: Date;
 }
