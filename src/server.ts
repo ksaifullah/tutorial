@@ -1,6 +1,7 @@
 import express from 'express';
 import { home } from './routes/home';
 import { notFound } from './routes/not-found';
+import { postRoutes } from './routes/post-routes';
 import { userRoutes } from './routes/user-routes';
 
 export const initServer = (): void => {
@@ -15,6 +16,7 @@ export const initServer = (): void => {
   app.get('/', home);
   app.get('/home', home);
   userRoutes(app);
+  postRoutes(app);
 
   app.use('*', notFound);
 
