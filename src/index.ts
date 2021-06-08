@@ -1,1 +1,9 @@
-export const addition = (a: number, b: number): number => a + b;
+import 'reflect-metadata';
+import 'source-map-support/register';
+
+import { connectDatabase } from './database';
+import { initServer } from './server';
+
+connectDatabase()
+  .then(initServer)
+  .catch(console.log);

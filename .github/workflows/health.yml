@@ -1,6 +1,9 @@
 name: Health Check
 
-on: push
+on:
+  push:
+    branches-ignore:
+      - '**'
 
 jobs:
   health-check:

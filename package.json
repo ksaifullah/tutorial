@@ -2,10 +2,13 @@
   "name": "tutorial",
   "version": "1.0.0",
   "description": "typescript tutorial",
-  "main": "dist/server.js",
+  "main": "dist/index.js",
   "scripts": {
     "compile": "rm -rf dist && tsc -p tsconfig.app.json",
+    "fake": "node dist/fake.js",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet",
+    "migrate": "typeorm migration:run",
+    "generate-migration": "typeorm migration:generate -n db-update",
     "start": "node .",
     "test": "jest --forceExit --detectOpenHandles",
     "watch": "concurrently -s last -k -p \"[{name}]\" -n \"TypeScript,Express\" -c \"yellow.bold,green.bold\" \"tsc -w -p tsconfig.app.json\" \"nodemon .\""
@@ -27,18 +30,23 @@
   "devDependencies": {
     "@types/eslint": "^7.2.10",
     "@types/express": "^4.17.11",
+    "@types/faker": "^5.5.4",
     "@types/jest": "^26.0.23",
     "@types/node": "^14.14.44",
     "@typescript-eslint/eslint-plugin": "^4.22.1",
     "@typescript-eslint/parser": "^4.22.1",
     "concurrently": "^6.0.2",
     "eslint": "^7.25.0",
+    "faker": "^5.5.3",
     "jest": "^26.6.3",
     "nodemon": "^2.0.7",
     "ts-jest": "^26.5.6",
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.32"
   }
 }
