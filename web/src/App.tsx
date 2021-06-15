@@ -1,11 +1,15 @@
+import { Box } from '@material-ui/core';
 import React from 'react';
-import './App.css';
+import { MainAppBar } from './components/MainAppBar';
+import { UserContainer } from './containers/UserContainer';
 
 function App() {
   return (
-    <div className="App">
-      Hello World!
-    </div>
+    <>
+      <MainAppBar></MainAppBar>
+      <Box mt={3}></Box>
+      <UserContainer></UserContainer>
+    </>
   );
 }
 
