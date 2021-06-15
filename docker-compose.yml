@@ -3,7 +3,7 @@ services:
   sh: &base
     image: node:lts-alpine
     volumes:
-      - .:/opt/code
+      - ./app:/opt/code
     working_dir: /opt/code
     command: sh
 
@@ -53,3 +53,11 @@ services:
       - '8081:8080'
     depends_on:
       - db
+
+  web:
+    <<: *base
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./web:/opt/code
+    command: sh -c "npm install && npm start"
