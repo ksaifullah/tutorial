@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import { home } from './routes/home';
 import { notFound } from './routes/not-found';
@@ -7,6 +8,7 @@ import { userRoutes } from './routes/user-routes';
 export const initServer = (): void => {
   const app = express();
   app.use(express.json());
+  app.use(cors({origin: true}));
   app.use(express.urlencoded({
     extended: true
   }));
