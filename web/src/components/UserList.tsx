@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,7 +7,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { useEffect } from 'react';
 import axios from 'axios';
 
 const useStyles = makeStyles({
@@ -34,7 +33,7 @@ export const UserList: React.FunctionComponent = () => {
         setRows(data);
       })
       .catch(console.error);
-  });
+  }, []);
 
   return (
     <TableContainer component={Paper}>

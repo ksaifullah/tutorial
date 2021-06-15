@@ -1,5 +1,4 @@
 import { Box } from '@material-ui/core';
-import React from 'react';
 import { MainAppBar } from './components/MainAppBar';
 import { UserContainer } from './containers/UserContainer';
 
