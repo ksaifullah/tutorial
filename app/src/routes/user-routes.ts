@@ -4,7 +4,7 @@ import { User } from '../entity/User';
 
 export const userRoutes = (app: Express): void => {
   app.get('/users', async (_, res) => {
-    const userList = await getRepository(User).find({take: 5});
+    const userList = await getRepository(User).find({take: 60});
     res.json(userList);
   });
 

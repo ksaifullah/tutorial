@@ -1,10 +1,38 @@
-import { Container } from '@material-ui/core';
+import { Box, Button, Container } from '@material-ui/core';
+import { useState } from 'react';
+import { UserAdd } from '../components/UserAdd';
 import { UserList } from '../components/UserList';
 
+enum DisplayMode {
+  list,
+  add,
+  edit,
+}
+
 export const UserContainer: React.FunctionComponent = () => {
+  const [mode, setMode] = useState<DisplayMode>(DisplayMode.list);
+
+  const displayComponent = () => {
+    if (mode === DisplayMode.list) {
+      return <UserList></UserList>;
+    } else if (mode === DisplayMode.add) {
+      return <UserAdd done={() => setMode(DisplayMode.list)}></UserAdd>;
+    } else {
+      return (<></>)
+    }
+  };
+
   return (
     <Container maxWidth="md">
-      <UserList></UserList>
+      <Box my={3} textAlign="right">
+        {mode !== DisplayMode.add && <Button variant="contained" color="primary" onClick={() => setMode(DisplayMode.add)}>
+          Add New
+        </Button>}
+        {mode !== DisplayMode.list && <Button variant="contained" color="primary" onClick={() => setMode(DisplayMode.list)}>
+          List
+        </Button>}
+      </Box>
+      {displayComponent()}
     </Container>
   )
 };
