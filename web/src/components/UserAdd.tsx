@@ -13,6 +13,13 @@ export interface UserAddProps {
 }
 
 export const UserAdd: React.FunctionComponent<UserAddProps> = ({done}) => {
+  const initialValue = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    isActive: false,
+  };
+
   const submitForm = async (values: any) => {
     await axios.put('http://localhost:8080/user', values)
       .then(done);
@@ -21,7 +28,7 @@ export const UserAdd: React.FunctionComponent<UserAddProps> = ({done}) => {
   return (
     <Card variant="outlined">
       <Formik
-        initialValues={{}}
+        initialValues={initialValue}
         onSubmit={submitForm}
       >
         {({ submitForm }) => (
@@ -53,9 +60,9 @@ export const UserAdd: React.FunctionComponent<UserAddProps> = ({done}) => {
                   helperText="Enter your email"
                 />
                 <Checkbox
-                  name="active"
+                  name="isActive"
                   label="User is active"
-                  checkboxProps={{ id: 'active' }}
+                  checkboxProps={{ id: 'is-active' }}
                   helperText="Is user active?"
                 />
               </Box>
