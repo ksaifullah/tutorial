@@ -1,26 +1,33 @@
 version: '3.9'
 services:
-  sh: &base
+  appsh: &AppBase
     image: node:lts-alpine
     volumes:
       - ./app:/opt/code
     working_dir: /opt/code
     command: sh
 
+  websh: &WebBase
+    image: node:lts-alpine
+    volumes:
+      - ./web:/opt/code
+    working_dir: /opt/code
+    command: sh
+
   install:
-    <<: *base
+    <<: *AppBase
     command: npm install
 
   lint:
-    <<: *base
+    <<: *AppBase
     command: npm run lint
 
   test:
-    <<: *base
+    <<: *AppBase
     command: npm test
 
   server: &server
-    <<: *base
+    <<: *AppBase
     environment:
       - PORT=8080
       - DB_HOST=db
@@ -55,9 +62,7 @@ services:
       - db
 
   web:
-    <<: *base
+    <<: *WebBase
     ports:
       - '3000:3000'
-    volumes:
-      - ./web:/opt/code
     command: sh -c "npm install && npm start"
